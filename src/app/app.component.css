@@ -1,0 +1,16 @@
+span{
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+mat-toolbar span:hover{
+  text-decoration: underline;
+}
+
+span:focus{
+  outline: none;
+}
+
+/**:focus {*/
+  /*outline: none;*/
+/*}*/
