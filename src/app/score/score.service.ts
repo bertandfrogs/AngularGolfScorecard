@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Score} from './score';
-import {AngularFireDatabase, AngularFireObject} from '@angular/fire/database';
-import {Observable} from 'rxjs';
+import { Score } from './score';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'

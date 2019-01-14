@@ -3,14 +3,11 @@ span{
   text-decoration: none;
 }
 
-mat-toolbar span:hover{
+mat-toolbar .space-left:hover{
   text-decoration: underline;
 }
 
-span:focus{
+.space-left:focus{
   outline: none;
 }
 
-/**:focus {*/
-  /*outline: none;*/
-/*}*/
