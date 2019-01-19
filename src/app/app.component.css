@@ -1,13 +1,17 @@
-span{
+.top span{
   margin-right: 20px;
   text-decoration: none;
 }
 
-mat-toolbar .space-left:hover{
+.top .space-left:hover{
   text-decoration: underline;
 }
 
-.space-left:focus{
+.top:focus{
   outline: none;
+}
+
+.content{
+  padding: 20px;
 }
 

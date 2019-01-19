@@ -1,6 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MatButtonModule, MatIconModule, MatTableModule, MatTabsModule, MatToolbarModule} from '@angular/material';
+import {
+    MatButtonModule, MatCardModule,
+    MatFormFieldModule,
+    MatIconModule, MatInputModule, MatSelectModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule
+} from '@angular/material';
 import { AngularFireModule } from '@angular/fire';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ScorecardComponent } from './scorecard/scorecard.component';
 import { CourseComponent } from './course/course.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,13 +31,19 @@ import { CourseComponent } from './course/course.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    MatInputModule,
     MatButtonModule,
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
     HttpClientModule,
     MatToolbarModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

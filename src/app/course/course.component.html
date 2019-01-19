@@ -1,0 +1,23 @@
+<mat-form-field>
+    <mat-select matNativeControl required placeholder="Select a Course" [(value)]="selected">
+        <mat-option *ngFor="let course of coursesList.courses"
+                value="{{ course.id }}"
+        >
+            {{ course.name }}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<p>Selected: {{ selected }}</p>
+
+<mat-form-field *ngIf="selected != null">
+    <mat-select matNativeControl required placeholder="Select a Tee" [(value)]="selectedTee">
+        <mat-option *ngFor="let tee of teeList.tee; let i = index"
+                    value="{{ tee.data.holes[0].teeBoxes[i].teeType }}"
+
+        >
+            {{ course.name }}
+        </mat-option>
+    </mat-select>
+    <p>Tee: {{ selected }}</p>
+</mat-form-field>
+

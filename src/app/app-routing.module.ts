@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path: 'scorecard',
     component: ScorecardComponent
+  },
+  { path: "",
+    redirectTo: "course",
+    pathMatch: "full"
   }
 ];
 

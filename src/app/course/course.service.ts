@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {Observable, of, throwError} from 'rxjs';
-import {catchError, switchMap, tap} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {Course} from './course';
 
 @Injectable({
@@ -9,23 +8,29 @@ import {Course} from './course';
 })
 export class CourseService {
     private url = 'https://golf-courses-api.herokuapp.com/courses';
+
     constructor(private httpClient: HttpClient) { }
 
     getCourses(): Observable<Course[]> {
-        return this.httpClient.get<Course[]>(this.url).pipe(
-            tap(data => console.log("All: "+ JSON.stringify(data))),
-            catchError(this.handleError)
-        );
+        return this.httpClient.get<Course[]>(this.url, {});
     }
 
-    private handleError(err: HttpErrorResponse){
-        let errorMessage = '';
-        if(err.error instanceof ErrorEvent){
-            errorMessage = `An error occurred: ${err.error.message}`;
-        } else{
-            errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
-        }
-        console.error(errorMessage);
-        return throwError(errorMessage);
+    getSpecificCourse(id): Observable<Course> {
+        return this.httpClient.get<Course>(`${this.url}/${id}`, {});
     }
+
+
+    // getCourses(): Observable<Course[]> {
+    //     return this.httpClient
+    //         .get<Course[]>(this.url)
+    //         .pipe(
+    //             tap(data => console.log("All: "+ JSON.stringify(data))),
+    //             catchError(this.handleError)
+    //         );
+    // }
+
+    // selectCourse(id: number){
+    //     this.selectedCourse = id;
+    // }
+    //
 }

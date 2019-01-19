@@ -1,7 +1,11 @@
-<mat-toolbar color="primary">
-  <span>Golf Scorecard</span>
-  <span class="space-left" [routerLink]="['/course']"><a>Home</a></span>
-  <span class="space-left" [routerLink]="['/scorecard']"><a>Scorecard</a></span>
-</mat-toolbar>
-<router-outlet></router-outlet>
+<div class="top">
+  <mat-toolbar color="primary">
+    <span>Golf Scorecard</span>
+    <span class="space-left" [routerLink]="['/course']"><a>Home</a></span>
+    <span class="space-left" [routerLink]="['/scorecard']"><a>Scorecard</a></span>
+  </mat-toolbar>
+</div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
 

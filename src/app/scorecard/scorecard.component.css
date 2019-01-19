@@ -1,0 +1,76 @@
+#teeSelect, #courseSelect{
+    margin: 5px;
+}
+.table{
+    margin-bottom: 0;
+}
+.table td, .table th{
+    border: 1px solid #dee2e6;
+}
+.name{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+}
+.name input{
+    width: 100%;
+}
+i{
+    padding-right: 5px;
+}
+.scoreBox{
+    width: 5%;
+    padding: 20px;
+}
+input{
+    border: none;
+    width: 50%;
+}
+input:focus{
+    outline: none;
+}
+.scoreInput{
+    width: 100%;
+    /*padding: 10px;*/
+    /*margin: auto;*/
+    text-align: center;
+}
+.labelNum{
+    width: 5%;
+    text-align: center;
+    padding: 20px;
+}
+.yards{
+    /*background-color: #aea8f0;*/
+}
+.par{
+    /*background-color: #7cbbff;*/
+}
+.handicap{
+    /*background-color: #76BDE1;*/
+}
+.hole{
+    /*background-color: #70c0c2;*/
+}
+.inScore, .in, .out, .outScore{
+    background-color: lightgray;
+    text-align: center;
+}
+.totalSP1, .total{
+    background-color: #AEA7F0;
+    text-align: center;
+}
+.inScore, .outScore{
+    padding: 3px;
+    margin: 0;
+    text-align: center;
+}
+.relScore{
+    text-align: center;
+    background-color: #7cbbff;
+}
+button{
+    margin: 10px;
+}
