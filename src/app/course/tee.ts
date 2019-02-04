@@ -1,5 +1,18 @@
 export interface Tee {
-    name: string,
-    id: number,
-    image: string
+    data: {
+        holes: [
+            {
+            teeBoxes: [
+                {
+                hole: number;
+                teeType: string;
+                hcp: number;
+                par: number;
+                yards: number;
+                }
+            ]
+            }
+        ]
+    };
+
 }

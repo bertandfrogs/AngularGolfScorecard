@@ -1,56 +1,26 @@
-<mat-tab-group animationDuration="0ms">
-  <mat-tab label="Player 1">
 
-      <table class="table">
-          <thead>
-          <tr class="yards">
-              <th scope='col'>Yards</th>
-              <th scope='col' class='labelNum'>0</th>
-              <th scope='col' class='labelNum'>0</th>
-          </tr>
-          <tr class="par">
-              <th scope='col'>Par</th>
-              <th scope='col' class='labelNum'>0</th>
-              <th scope='col' class='labelNum'>0</th>
-          </tr>
-          <tr class="handicap">
-              <th scope='col'>Handicap</th>
-              <th scope='col' class='labelNum'>0</th>
-              <th scope='col' class='labelNum'>0</th>
-          </tr>
-          <tr class="hole">
-              <th scope='col'>Hole</th>
-              <th scope='col' class='labelNum'>0</th>
-              <th scope='col' class='labelNum'>0</th>
-          </tr>
-          </thead>
-          <tbody class="player">
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-            <td class='scoreBox'><input class=''></td>
-
-          </tbody>
-      </table>
-
-  </mat-tab>
-  <mat-tab label="Player 2">Content 2</mat-tab>
-  <mat-tab label="Player 3">Content 3</mat-tab>
-  <mat-tab label="Player 4"></mat-tab>
-</mat-tab-group>
+<table class="table">
+  <thead>
+  <tr class="yards">
+      <th scope='col'>Yards</th>
+      <th *ngFor="let hole of holes" scope='col' class='labelNum'>{{hole}}</th>
+  </tr>
+  <tr class="par">
+      <th scope='col'>Par</th>
+      <th *ngFor="let hole of holes" scope='col' class='labelNum'>{{hole}}</th>
+  </tr>
+  <tr class="handicap">
+      <th scope='col'>Handicap</th>
+      <th *ngFor="let hole of holes" scope='col' class='labelNum'>{{hole}}</th>
+  </tr>
+  <tr class="hole">
+      <th scope='col'>Hole</th>
+      <th *ngFor="let hole of holes" scope='col' class='labelNum'>{{hole}}</th>
+  </tr>
+  </thead>
+    <tbody class="player" *ngFor="let player of playerCount">
+        <td class='scoreBox'>{{ player }}</td>
+        <td *ngFor="let hole of holes" class='scoreBox'><input class=''></td>
+    </tbody>
+</table>
 

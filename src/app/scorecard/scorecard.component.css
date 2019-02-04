@@ -7,15 +7,16 @@
 .table td, .table th{
     border: 1px solid #dee2e6;
 }
-.name{
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    width: 100%;
-    margin: 0;
-}
+/*.name{*/
+    /*display: flex;*/
+    /*flex-direction: row-reverse;*/
+    /*align-items: center;*/
+    /*width: 100%;*/
+    /*margin: 0;*/
+/*}*/
 .name input{
     width: 100%;
+    font-size: 24px;
 }
 i{
     padding-right: 5px;
@@ -23,6 +24,7 @@ i{
 .scoreBox{
     width: 5%;
     padding: 20px;
+
 }
 input{
     border: none;

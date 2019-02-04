@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Course} from './course';
+import {Tee} from './tee';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +16,10 @@ export class CourseService {
         return this.httpClient.get<Course[]>(this.url, {});
     }
 
-    getSpecificCourse(id): Observable<Course> {
-        return this.httpClient.get<Course>(`${this.url}/${id}`, {});
-    }
+    getSpecificCourse(id): Observable<Tee> {
+        return this.httpClient.get<Tee>(`${this.url}/${id}`, {});
 
+    }
 
     // getCourses(): Observable<Course[]> {
     //     return this.httpClient
