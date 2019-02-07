@@ -50,16 +50,51 @@
 
 </table>
 
-<div class="scores">
-    <div class="scoreWrapper">
-        <p *ngFor="let player of playerNames">{{player}}'s in score: </p>
-    </div>
-    <div class="scoreWrapper">
-        <p *ngFor="let player of playerNames">{{player}}'s out score: </p>
-    </div>
-    <div class="scoreWrapper">
-        <p *ngFor="let player of playerNames">{{player}}'s total score: </p>
-    </div>
+<div class="scores" *ngIf="p1 != 0">
+    <mat-card>
+        <div class="scoreWrapper">
+            <p>{{ playerNames[0] }}'s in score: {{p1i - inScore}}</p>
+        </div>
+        <div class="scoreWrapper">
+            <p>{{ playerNames[0] }}'s out score: {{p1o - outScore}}</p>
+        </div>
+        <div class="scoreWrapper">
+            <p>{{ playerNames[0] }}'s total score: {{p1 - totalScore}}</p>
+        </div>
+    </mat-card>
+    <mat-card *ngIf="playerCount.length > 1">
+        <div class="scoreWrapper">
+            <p>{{ playerNames[1] }}'s in score: {{p2i - inScore}}</p>
+        </div>
+        <div class="scoreWrapper">
+            <p>{{ playerNames[1] }}'s out score: {{p2o - outScore}}</p>
+        </div>
+        <div class="scoreWrapper">
+            <p>{{ playerNames[1] }}'s total score: {{p2 - totalScore}}</p>
+        </div>
+    </mat-card>
+    <mat-card *ngIf="playerCount.length > 2">
+        <div class="scoreWrapper">
+            <p>{{ playerNames[2] }}'s in score: {{p3i - inScore}}</p>
+        </div>
+        <div class="scoreWrapper">
+            <p>{{ playerNames[2] }}'s out score: {{p3o - outScore}}</p>
+        </div>
+        <div class="scoreWrapper">
+            <p>{{ playerNames[2] }}'s total score: {{p3 - totalScore}}</p>
+        </div>
+    </mat-card>
+    <mat-card *ngIf="playerCount.length > 3">
+        <div class="scoreWrapper">
+            <p>{{ playerNames[3] }}'s in score: {{p4i - inScore}}</p>
+        </div>
+        <div class="scoreWrapper">
+            <p>{{ playerNames[3] }}'s out score: {{p4o - outScore}}</p>
+        </div>
+        <div class="scoreWrapper">
+            <p>{{ playerNames[3] }}'s total score: {{p4 - totalScore}}</p>
+        </div>
+    </mat-card>
 </div>
 
 <button (click)="getAllScores()">Get Scores</button>

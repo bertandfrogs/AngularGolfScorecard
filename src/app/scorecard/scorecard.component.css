@@ -1,7 +1,9 @@
 #teeSelect, #courseSelect{
     margin: 5px;
 }
-
+div{
+    padding: 0;
+}
 .table{
     margin-bottom: 0;
 }

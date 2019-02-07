@@ -31,6 +31,18 @@ export class ScorecardComponent implements OnInit {
   p3 = 0;
   p4 = 0;
 
+  p1i = 0;
+  p2i = 0;
+  p3i = 0;
+  p4i = 0;
+
+  p1o = 0;
+  p2o = 0;
+  p3o = 0;
+  p4o = 0;
+
+
+
   inScore = 0;
   outScore = 0;
   totalScore = 0;
@@ -64,18 +76,71 @@ export class ScorecardComponent implements OnInit {
   }
 
   getPlayerScores(){
-      //Player 1
-      console.log(this.p1Score.length);
       if(this.p1Score.length == 18){
           this.p1 = 0;
+          this.p1i = 0;
+          this.p1o = 0;
           for(let i = 0; i < this.p1Score.length; i++){
               this.p1 += Number(this.p1Score[i]);
+              if(i < 9){
+                  this.p1i += Number(this.p1Score[i]);
+              }
+              if(i > 8){
+                  this.p1o += Number(this.p1Score[i]);
+              }
           }
           console.log(this.p1);
       }
-      else{
-          console.log("something went wrong");
+
+      if(this.p2Score.length == 18){
+          this.p2 = 0;
+          this.p2i = 0;
+          this.p2o = 0;
+          for(let i = 0; i < this.p2Score.length; i++){
+              this.p2 += Number(this.p2Score[i]);
+              if(i < 9){
+                  this.p2i += Number(this.p2Score[i]);
+              }
+              if(i > 8){
+                  this.p2o += Number(this.p2Score[i]);
+              }
+          }
+          console.log(this.p2);
       }
+
+      if(this.p3Score.length == 18){
+          this.p3 = 0;
+          this.p3i = 0;
+          this.p3o = 0;
+          for(let i = 0; i < this.p3Score.length; i++){
+              this.p3 += Number(this.p3Score[i]);
+              if(i < 9){
+                  this.p3i += Number(this.p3Score[i]);
+              }
+              if(i > 8){
+                  this.p3o += Number(this.p3Score[i]);
+              }
+          }
+          console.log(this.p3);
+
+      }
+
+      if(this.p4Score.length == 18){
+          this.p4 = 0;
+          this.p4i = 0;
+          this.p4o = 0;
+          for(let i = 0; i < this.p4Score.length; i++){
+              this.p4 += Number(this.p4Score[i]);
+              if(i < 9){
+                  this.p4i += Number(this.p4Score[i]);
+              }
+              if(i > 8){
+                  this.p4o += Number(this.p4Score[i]);
+              }
+          }
+          console.log(this.p4);
+      }
+
 
   }
   getAllScores(){
