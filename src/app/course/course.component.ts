@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from './course';
 import { CourseService } from './course.service';
 import {Tee} from './tee';
+import {DataService} from '../data/data.service';
 
 @Component({
   selector: 'app-course',
@@ -10,22 +11,28 @@ import {Tee} from './tee';
 
 })
 export class CourseComponent implements OnInit {
-    coursesList: Course[];
+    coursesList: Course;
     teeList: Tee;
     teeTypeList = [];
     courseSelected = false;
+    teeSelected = false;
+    playerSelected = false;
+    playerCount = [0,1,2,3];
+    newPlayerCount = [];
+    playerNum: number;
+    nameArray = [];
 
-    constructor(private courseService: CourseService){}
 
-    ngOnInit(): void{
+    constructor(private courseService: CourseService, private dataService: DataService){}
+
+    ngOnInit(): void {
         this.getCourse();
     }
 
-    getCourse(): void{
+    getCourse(): void {
         this.courseService.getCourses().subscribe(
             courses => {
                 this.coursesList = courses;
-                console.log(this.coursesList);
             },
 
         );
@@ -39,26 +46,51 @@ export class CourseComponent implements OnInit {
                 for(let i = 0; i < tee.data.holes[0].teeBoxes.length; i++){
                     this.teeTypeList.push(tee.data.holes[0].teeBoxes[i].teeType);
                 }
-                console.log(this.teeTypeList);
-                console.log(tee.data.holes[0].teeBoxes[0]);
-
             }
         );
     }
 
     playerNumber(event) {
-        let playerNum = event.value;
+        this.playerNum = event.value;
+        this.newPlayerCount = [];
+        this.newPlayerCount = this.playerCount;
+        this.newPlayerCount.splice(this.playerNum, 4 - this.playerNum);
+        this.dataService.players = this.newPlayerCount;
+        this.playerSelected = true;
     }
 
-    chooseCourse(courseId) {
-        if(courseId != undefined){
+    chooseCourse(course) {
+        if(course.value != undefined){
+            this.dataService.course = course.value;
+            this.getSpecificCourse(course.value);
             this.courseSelected = true;
-            this.getSpecificCourse(courseId);
         }
     }
 
     chooseTee(tee){
         let selectedTee = tee.value;
-        console.log(selectedTee);
+        this.dataService.tee = selectedTee;
+        this.teeSelected = true;
+    }
+
+    submit(){
+        this.getInfo();
+        this.dataService.playerNames = this.nameArray;
+    }
+
+    getInfo(){
+        this.dataService.par = [];
+        this.dataService.yards = [];
+        this.dataService.hcp = [];
+
+        this.courseService.getSpecificCourse(this.dataService.course).subscribe(
+            tee => {
+                for(let i = 0; i < tee.data.holes.length; i++){
+                    this.dataService.par.push(tee.data.holes[i].teeBoxes[this.dataService.tee].par);
+                    this.dataService.yards.push(tee.data.holes[i].teeBoxes[this.dataService.tee].yards);
+                    this.dataService.hcp.push(tee.data.holes[i].teeBoxes[this.dataService.tee].hcp);
+                }
+            }
+        );
     }
 }

@@ -12,8 +12,8 @@ export class CourseService {
 
     constructor(private httpClient: HttpClient) { }
 
-    getCourses(): Observable<Course[]> {
-        return this.httpClient.get<Course[]>(this.url, {});
+    getCourses(): Observable<Course> {
+        return this.httpClient.get<Course>(this.url, {});
     }
 
     getSpecificCourse(id): Observable<Tee> {

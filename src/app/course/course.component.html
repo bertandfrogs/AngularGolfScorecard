@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div class="select">
         <mat-form-field>
-            <mat-select matNativeControl required placeholder="Select a Course" (selectionChange)="chooseCourse($event.value)">
+            <mat-select matNativeControl required placeholder="Select a Course" (selectionChange)="chooseCourse($event)">
                 <mat-option *ngFor="let course of coursesList?.courses"
                         value="{{ course.id }}">
                     {{ course.name }}
@@ -30,6 +30,12 @@
     </mat-select>
 </mat-form-field>
 
+<form *ngIf="playerSelected">
+    <mat-form-field class="nameInputs" *ngFor="let player of newPlayerCount; let i = index">
+        <input matInput placeholder="Player {{player + 1}} name:" [(ngModel)]="nameArray[i]" name="player">
+    </mat-form-field>
+</form>
+
 <div>
-    <button mat-raised-button [routerLink]="['/scorecard']">Next</button>
+    <button (click)="submit()" mat-raised-button [routerLink]="['/scorecard']">Next</button>
 </div>

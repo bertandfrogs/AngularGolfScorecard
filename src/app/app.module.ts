@@ -17,14 +17,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ScorecardComponent } from './scorecard/scorecard.component';
 import { CourseComponent } from './course/course.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule} from '@angular/forms';
+import { PlayerNamePipe } from './pipe/player-name.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     ScorecardComponent,
-    CourseComponent
+    CourseComponent,
+    PlayerNamePipe
   ],
   imports: [
     BrowserModule,

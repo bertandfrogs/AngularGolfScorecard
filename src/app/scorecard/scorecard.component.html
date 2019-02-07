@@ -3,24 +3,63 @@
   <thead>
   <tr class="yards">
       <th scope='col'>Yards</th>
-      <th *ngFor="let hole of holes" scope='col' class='labelNum'>{{hole}}</th>
+      <th *ngFor="let yards of yardArray" scope='col' class='labelNum'>{{yards}}</th>
   </tr>
   <tr class="par">
       <th scope='col'>Par</th>
-      <th *ngFor="let hole of holes" scope='col' class='labelNum'>{{hole}}</th>
+      <th *ngFor="let par of parArray; let i = index" scope='col' class='labelNum'>
+          {{par}}
+      </th>
   </tr>
   <tr class="handicap">
       <th scope='col'>Handicap</th>
-      <th *ngFor="let hole of holes" scope='col' class='labelNum'>{{hole}}</th>
+      <th *ngFor="let hcp of hcpArray" scope='col' class='labelNum'>{{hcp}}</th>
   </tr>
   <tr class="hole">
       <th scope='col'>Hole</th>
       <th *ngFor="let hole of holes" scope='col' class='labelNum'>{{hole}}</th>
   </tr>
   </thead>
-    <tbody class="player" *ngFor="let player of playerCount">
-        <td class='scoreBox'>{{ player }}</td>
-        <td *ngFor="let hole of holes" class='scoreBox'><input class=''></td>
+    <tbody class="player">
+        <td class='scoreBox'>{{ playerNames[0] }}</td>
+        <td *ngFor="let hole of holes; let i = index" class='scoreBox'>
+            <input class='p1h{{hole}}' [(ngModel)]='p1Score[i]'>
+        </td>
     </tbody>
+
+    <tbody class="player" *ngIf="playerCount.length > 1">
+        <td class='scoreBox'>{{ playerNames[1] }}</td>
+        <td *ngFor="let hole of holes; let i = index" class='scoreBox'>
+            <input class='p2h{{hole}}' [(ngModel)]='p2Score[i]'>
+        </td>
+    </tbody>
+
+    <tbody class="player" *ngIf="playerCount.length > 2">
+    <td class='scoreBox'>{{ playerNames[2] }}</td>
+    <td *ngFor="let hole of holes; let i = index" class='scoreBox'>
+        <input class='p3h{{hole}}' [(ngModel)]='p3Score[i]'>
+    </td>
+    </tbody>
+
+    <tbody class="player" *ngIf="playerCount.length > 3">
+    <td class='scoreBox'>{{ playerNames[3] }}</td>
+    <td *ngFor="let hole of holes; let i = index" class='scoreBox'>
+        <input class='p4h{{hole}}' [(ngModel)]='p4Score[i]'>
+    </td>
+    </tbody>
+
 </table>
 
+<div class="scores">
+    <div class="scoreWrapper">
+        <p *ngFor="let player of playerNames">{{player}}'s in score: </p>
+    </div>
+    <div class="scoreWrapper">
+        <p *ngFor="let player of playerNames">{{player}}'s out score: </p>
+    </div>
+    <div class="scoreWrapper">
+        <p *ngFor="let player of playerNames">{{player}}'s total score: </p>
+    </div>
+</div>
+
+<button (click)="getAllScores()">Get Scores</button>
